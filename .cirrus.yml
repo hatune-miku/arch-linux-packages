@@ -5,10 +5,9 @@ container:
 
 task:
     script:
-        - pacman -Syu --needed --noconfirm sudo base-devel
-        - useradd builder
-        - passwd -d builder
-        - echo 'builder ALL=(ALL) ALL' > /etc/sudoers.d/00-builder
-        - sudo -u builder bash -c 'cd inkscape-git && makepkg -s --noconfirm'
+        - pacman -Syu --needed --noconfirm base-devel
+        - sed -i '/E_ROOT/d' /usr/bin/makepkg
+        - cd inkscape-git
+        - makepkg -s --noconfirm
     binaries_artifacts:
         path: "*.pkg.tar.zst"
