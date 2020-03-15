@@ -11,5 +11,5 @@ task:
         - echo MAKEFLAGS=\"-j$(nproc)\" >> /etc/makepkg.conf
         - cd inkscape-git
         - makepkg -s --noconfirm
-    binaries_artifacts:
-        path: "*.pkg.tar.zst"
+    artifacts:
+        path: "*/*.pkg.tar.zst"
