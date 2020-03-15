@@ -1,0 +1,11 @@
+container:
+    image: archlinux/base
+    cpu: 8
+    memory: 24G
+
+task:
+    script:
+        - cd inkscape-git
+        - makepkg -s
+    binaries_artifacts:
+        path: "*.pkg.tar.zst"
