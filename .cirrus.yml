@@ -7,7 +7,7 @@ task:
     script:
         - pacman -Syu --needed --noconfirm sudo base-devel
         - useradd builder
-        - passwd -d buildser
+        - passwd -d builder
         - echo 'builder ALL=(ALL) ALL' > /etc/sudoers.d/00-builder
         - sudo -u builder bash -c 'cd inkscape-git && makepkg -s --noconfirm'
     binaries_artifacts:
