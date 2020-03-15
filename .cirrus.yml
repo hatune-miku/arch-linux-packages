@@ -7,6 +7,8 @@ task:
     script:
         - pacman -Syu --needed --noconfirm base-devel
         - sed -i '/E_ROOT/d' /usr/bin/makepkg
+        - sed -i 's/COMPRESSZST=(zstd -c -z -q -)/COMPRESSZST=(zstd -c -z -q - --threads=0)/' /etc/makepkg.conf
+        - echo MAKEFLAGS=\"-j$(nproc)\" >> /etc/makepkg.conf
         - cd inkscape-git
         - makepkg -s --noconfirm
     binaries_artifacts:
