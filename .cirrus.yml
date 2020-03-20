@@ -10,7 +10,7 @@ task:
         - sed -i "s/PKGEXT='.pkg.tar.xz'/PKGEXT='.pkg.tar.zst'/" /etc/makepkg.conf
         - echo 'COMPRESSZST+=(--threads=0)' >> /etc/makepkg.conf
         - echo MAKEFLAGS=\"-j$(nproc)\" >> /etc/makepkg.conf
-        - cd inkscape-git
+        - cd nheko-git
         - makepkg -s --noconfirm
     artifacts:
         path: "*/*.pkg.tar.zst"
